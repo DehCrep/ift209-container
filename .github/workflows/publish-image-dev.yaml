@@ -1,8 +1,9 @@
 name: Publish ARMDEVENV to GHCR on Commit (dev)
 
 on:
-  branches:
-    - dev
+  push:
+    branches:
+      - dev
 
 jobs:
   build_and_publish:
