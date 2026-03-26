@@ -1,5 +1,5 @@
-# Se baser sur la une version stable et légère de debian
-FROM debian:bookworm-slim
+# Se baser sur une version stable et légère de debian
+FROM debian:trixie-slim
 
 # Installer tous les paquets nécéssaires pour la cross-compilation
 RUN apt-get update && \
