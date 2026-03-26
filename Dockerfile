@@ -7,17 +7,16 @@ RUN apt-get update && \
     gcc-aarch64-linux-gnu \
     g++-aarch64-linux-gnu \
     binutils-aarch64-linux-gnu \
-    #qemu-user \
-    qemu-user-static \
+    qemu-user \
     gdb-multiarch \
     make \
-# Enlever les fichiers d'installation qui ne servent plus
+# Enlever les fichiers d'installation qui ne serveront pas.
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*\
 # Supprimer tous les émulateurs QEMU sauf celui d'aarch64.
-    && mv /usr/bin/qemu-aarch64-static /tmp/qemu-save \
-    && rm /usr/bin/qemu-*-static \
-    && mv /tmp/qemu-save /usr/bin/qemu-aarch64-static \
-# des alias pour binder les outils de cross-compilation aux noms natifs (make files du prof)
+    && mv /usr/bin/qemu-aarch64 /tmp/qemu-save \
+    && rm /usr/bin/qemu-* \
+    && mv /tmp/qemu-save /usr/bin/qemu-aarch64 \
+# Les alias pour lier les outils de cross-compilation aux noms natifs (dans les make files du prof).
     && ln -s /usr/bin/aarch64-linux-gnu-as /usr/bin/as \
     && ln -s /usr/bin/aarch64-linux-gnu-ld /usr/bin/ld \
     && ln -s /usr/bin/aarch64-linux-gnu-gcc /usr/bin/gcc \
